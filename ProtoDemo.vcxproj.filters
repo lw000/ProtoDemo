@@ -13,10 +13,22 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="proto">
+      <UniqueIdentifier>{908318ef-30f7-4948-ac27-e9c6dc22d5d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="proto\proto">
+      <UniqueIdentifier>{701b07ad-a4ec-4aeb-b808-675537fb5430}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto\service.pb.h">
+      <Filter>proto\proto</Filter>
+    </ClInclude>
+    <ClInclude Include="proto\proto\tnode.pb.h">
+      <Filter>proto\proto</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -26,5 +38,19 @@
     <ClCompile Include="ProtoDemo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="proto\proto\service.pb.cc">
+      <Filter>proto\proto</Filter>
+    </ClCompile>
+    <ClCompile Include="proto\proto\tnode.pb.cc">
+      <Filter>proto\proto</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="proto\service.proto">
+      <Filter>proto</Filter>
+    </None>
+    <None Include="proto\tnode.proto">
+      <Filter>proto</Filter>
+    </None>
   </ItemGroup>
 </Project>

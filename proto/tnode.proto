@@ -1,0 +1,86 @@
+syntax = "proto2";
+
+package Tnode;
+
+//请求节点信息
+message ReqNodeInfo {
+
+}
+
+//平台信息
+message PlatformInfo {
+    optional int32 platformId = 1;          //平台Id
+    optional string platformName = 2;       //平台名称
+    optional string homeUrl = 3;            //官网地址
+    optional string resUrl = 4;             //资源地址
+}
+
+//渠道信息
+message CanalInfo {
+    optional int32 platformId  = 1;         //平台
+    optional int32 canalId = 2;             //渠道
+    optional string canalName = 3;          //渠道名称
+    optional int32 isAppStore = 4;          //是否用来上架，0不是，1是，默认0
+    optional int32 allowWeiXinLogin  = 5;   //0不允许，1允许，默认为0
+    optional int32 showGuide  = 6;          //是否显示新手引导，0不显示，1显示，默认为1
+    optional string advUrl  = 7;            //广告地址
+    optional string serviceUrl  = 8;        //客服地址，如果不为出，客户端弹出这个网址
+    optional string iosUrl = 9;             //ios地址
+    optional int32 showWeb = 10;            //是否显示网页。0-不显示；1-显示
+    optional string webUrl = 11;            //网页地址
+    optional int32 allowGuestLogin = 12;    //是否允许游客登录。0-不允许；1-允许
+}
+
+// 大厅信息
+message LobbyInfo {
+    optional int32 platformId = 1;          //平台信息
+    optional int32 gameId = 2;              //游戏ID
+    optional int32 canalId = 3;             //渠道ID
+    optional int32 clientVer = 4;           //客户端版本
+    optional int32 resVer = 5;              //资源版本
+    optional string downloadUrl = 6;        //下载地址
+    optional string downGameUrl = 7;        //下载地址
+}
+
+//节点信息
+message NodeInfo {
+    optional string ip = 1;                 //ip地址
+    optional int32 port = 2;                //端口
+}
+
+//节点组
+message NodeGroup {
+    optional int32 canalId = 1;             //渠道Id
+    optional int32 vipLevel = 2;            //vip等级
+    repeated NodeInfo nodes = 3;   //节点列表
+}
+
+//回应节点信息
+message AckNodeInfo {
+    optional PlatformInfo platform = 1;     //平台信息
+    repeated LobbyInfo  lobbys = 2;   //大厅信息
+    repeated CanalInfo canals = 3;      // 渠道列表
+    repeated NodeGroup nodeGroups = 4;  // 节点列表
+}
+
+//请求查询用户
+message ReqQueryUser {
+    optional string loginAcc = 1;           //登录账号
+    optional int32 canalId = 2;             //渠道Id
+}
+
+//回应查询用户信息
+message AckQueryUser {
+    optional int32 canalId = 1;             //渠道Id
+    optional int32 platformId = 2;          //平台Id
+    optional string loginAcc = 3;           //登录账号
+    optional uint32 userId = 4;             //用户Id
+    optional string nickName = 5;           //昵称
+    optional int32 vipLevel = 6;            //vip等级
+    optional int32 regTime = 7;             //注册时间
+}
+
+//请求重载节点信息
+message ReqReloadData {
+    optional int32 opcode = 1;              //操作码。备用
+}
